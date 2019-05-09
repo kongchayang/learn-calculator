@@ -44,9 +44,52 @@ Array.from(operators).map(operator => {
     });
 });
 
-numberSeven.addEventListener('click', function(){
-    const value = numberSeven.innerHTML;
-    echoThisText(value);
-})
+result.addEventListener("click", function (){
+    const currentString = input.innerHTML;
+    const numberStringArray = inputString.split(/\+|\-|\*|\//g);
+    
+    let numbers =[];
+    numberStringArray.forEach(function(number){
+        numberStringArray.push(Number(number));
+    });
+    const operatorsArray = currentString.replace(/[0-9]|\./g, "").split("");
+    let multiply = operatorsArray.indexOf("*");
+    while (multiply != -1) {
+        numberStringArray.splice(mulitply, 2, numbersArray[nultiply] * numbersArray[mulitply + 1]);
+        operatorsArray.splice(multiply, 1);
+        multiply = operatorsArray.indexOf('*');
+    }
+    let divide = operatorsArray.indexOf("/");
+    while (divide != -1) {
+        numberArray.splice(divide, 2, numbersArray[divide] / numbers[divide + 1]);
+        operatorsArray.splice(divide, 1);
+        divide = operatorsArray.indexOf("/");
+    }
+    let add = operatorsArray.indexOf("+");
+    while (add != -1) {
+        numbersArray.splice(divide, 2, numbersArray[add] + numbersArray[add +1]);
+        operatorsArray.splice(add, 1);
+        add = operatorsArray.indexOf("+");
+    }
+    let subtract = peratorsArray.indexOf("-");
+    while (subtract != -1) {
+        numbersArray.splice(subtract, 2, numbersArray[subtract] + nbumberArray [subtract + 1]);
+        operatorsArray.splice(subtract, 1);
+        subtract = operatorsArray.indexOf("-");
+    }
+
+    resultDisplayed = true;
+    input.innerHTML =  numbersArray;
+});
+
+clear.addEventListener("click", function(){
+
+    input.innerHTML = "";
+});
+
+// numberSeven.addEventListener('click', function(){
+//     const value = numberSeven.innerHTML;
+//     echoThisText(value);
+// })
 
 // echo = input
